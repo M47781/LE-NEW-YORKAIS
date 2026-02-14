@@ -1,219 +1,194 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le New Yorkais - Smash Burgers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le New Yorkais - Smash Burgers</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
 
-body{
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    position:relative;
-}
+        body{
+            font-family:'Poppins',sans-serif;
+            min-height:100vh;
+            overflow-x:hidden;
+            background:#000;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+        }
 
-/* 🔥 Background animé */
-body::before{
-    content:"";
-    position:fixed;
-    top: 0; left: 0; width:100%; height:100%;
-    background:radial-gradient(circle at 50% 100%, rgba(255,60,0,.9), transparent 60%),
-              radial-gradient(circle at 20% 100%, rgba(255,0,0,.7), transparent 60%),
-              radial-gradient(circle at 80% 100%, rgba(255,120,0,.6), transparent 60%);
-    animation:fireMove 5s infinite linear alternate, flicker 2s infinite;
-    z-index:-1;
-    filter:blur(90px);
-}
+        /* 🔥 Background Anime */
+        body::before{
+            content:"";
+            position:fixed;
+            top: 0; left: 0; width:100%; height:100%;
+            background:radial-gradient(circle at 50% 100%, rgba(255,60,0,.8), transparent 60%),
+                       radial-gradient(circle at 20% 100%, rgba(255,0,0,.7), transparent 60%),
+                       radial-gradient(circle at 80% 100%, rgba(255,120,0,.6), transparent 60%);
+            animation:fireMove 6s infinite linear alternate;
+            z-index:-1;
+            filter:blur(80px);
+        }
 
-@keyframes fireMove{
-    0%{transform:translateY(0) scale(1);}
-    100%{transform:translateY(-60px) scale(1.1);}
-}
+        @keyframes fireMove{
+            0%{transform:translateY(0) scale(1);}
+            100%{transform:translateY(-40px) scale(1.1);}
+        }
 
-@keyframes flicker{
-    0%, 100%{opacity:0.9;}
-    50%{opacity:1;}
-}
+        .container{
+            width:100%;
+            max-width:480px;
+            background:rgba(0,0,0,.85);
+            border:2px solid #ff0000;
+            border-radius:25px;
+            padding:35px 25px;
+            text-align:center;
+            box-shadow:0 0 40px rgba(255,0,0,.6);
+            animation: slideUp 0.8s ease-out forwards;
+        }
 
-/* Container principal */
-.container{
-    width:100%;
-    max-width:480px;
-    background:rgba(0,0,0,.85);
-    border:2px solid #ff0000;
-    border-radius:25px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 0 40px rgba(255,0,0,.6);
-}
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-/* Logo animé */
-.logo{
-    width:120px;
-    height:120px;
-    object-fit:cover;
-    border-radius:50%;
-    border:3px solid red;
-    box-shadow:0 0 20px red;
-    margin-bottom:15px;
-    animation:logoPulse 3s infinite alternate;
-}
+        .logo{
+            width:120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius:50%;
+            border:3px solid red;
+            box-shadow:0 0 20px red;
+            margin-bottom:15px;
+            animation: pulseLogo 2s infinite ease-in-out;
+        }
 
-@keyframes logoPulse{
-    0%{transform: scale(1);}
-    50%{transform: scale(1.1) rotate(-2deg);}
-    100%{transform: scale(1) rotate(2deg);}
-}
+        @keyframes pulseLogo {
+            0%, 100% { box-shadow: 0 0 15px red; transform: scale(1); }
+            50% { box-shadow: 0 0 35px red; transform: scale(1.05); }
+        }
 
-/* Titres et bio */
-h1{
-    font-family:'Anton',sans-serif;
-    font-size:32px;
-    color:white;
-    text-shadow:0 0 10px red;
-    letter-spacing:2px;
-    text-transform: uppercase;
-}
+        h1{
+            font-family:'Anton',sans-serif;
+            font-size:32px;
+            color:white;
+            text-shadow:0 0 10px red;
+            letter-spacing:2px;
+            text-transform: uppercase;
+        }
 
-.bio{ color:#ccc; font-size:14px; margin-bottom:20px; line-height:1.6; }
+        .bio{ color:#ccc; font-size:14px; margin-bottom:20px; line-height: 1.6; }
 
-/* Carousel animé */
-.carousel{
-    width:100%;
-    overflow:hidden;
-    border-radius:20px;
-    margin-bottom:25px;
-    border:2px solid red;
-}
+        .carousel{
+            width:100%;
+            overflow:hidden;
+            border-radius:20px;
+            margin-bottom:25px;
+            border:2px solid red;
+        }
 
-.track{
-    display:flex;
-    animation:scroll 20s linear infinite;
-}
+        .track{ display:flex; animation:scroll 25s linear infinite; }
 
-.track img{
-    width:200px;
-    height:140px;
-    object-fit:cover;
-    margin-right:10px;
-    border-radius:15px;
-    transition: transform 0.5s;
-}
+        .track img{
+            width:200px;
+            height:140px;
+            object-fit:cover;
+            margin-right:10px;
+            border-radius:15px;
+        }
 
-.track img:hover{
-    transform: scale(1.1) rotate(1deg);
-}
+        @keyframes scroll{
+            0%{transform:translateX(0)}
+            100%{transform:translateX(-50%)}
+        }
 
-@keyframes scroll{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
-}
+        .btn{
+            position: relative;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:12px;
+            margin:10px 0;
+            padding:14px 20px;
+            border-radius:30px;
+            text-decoration:none;
+            font-size:14px;
+            font-weight: 500;
+            color:white;
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: hidden;
+        }
 
-/* 🔹 Boutons animés */
-.btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin:10px 0;
-    padding:14px 20px;
-    border-radius:30px;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    color:white;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    transition:0.3s, box-shadow 0.3s;
-    cursor:pointer;
-    animation: pulse 2.5s infinite;
-}
+        .btn:hover{ 
+            transform: scale(1.03); 
+            background:rgba(255,255,255,0.2); 
+            border-color:white;
+        }
 
-.btn:hover{
-    transform:translateY(-3px) scale(1.05);
-    background:rgba(255,255,255,0.15);
-    border-color:white;
-    box-shadow:0 0 15px red, 0 0 25px orange, 0 0 35px yellow;
-}
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%; width: 20%; height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(30deg);
+            transition: 0s;
+        }
 
-.btn img{
-    width:22px;
-    transition: transform 0.3s;
-}
+        .btn:hover::after { left: 120%; transition: 0.6s; }
 
-.btn:hover img{
-    transform: scale(1.2) rotate(10deg);
-}
+        .btn img{ width:22px; }
+        .btn-red { background: rgba(255, 0, 0, 0.3); border: 1px solid #ff0000; }
 
-.btn-red{
-    background: rgba(255,0,0,0.3);
-    border:1px solid #ff0000;
-    animation: pulseRed 2s infinite;
-}
+        .footer{ margin-top:20px; font-size:11px; color:#777; }
 
-@keyframes pulse{
-    0%{ box-shadow: 0 0 0px rgba(255,255,255,0.3);}
-    50%{ box-shadow:0 0 15px rgba(255,0,0,0.7),0 0 25px rgba(255,120,0,0.5);}
-    100%{ box-shadow: 0 0 0px rgba(255,255,255,0.3);}
-}
+        /* Overlays Styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            z-index: 200;
+            overflow-y: auto;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+        }
 
-@keyframes pulseRed{
-    0%{box-shadow:0 0 5px rgba(255,0,0,0.4);}
-    50%{box-shadow:0 0 20px rgba(255,0,0,0.7),0 0 35px rgba(255,120,0,0.5);}
-    100%{box-shadow:0 0 5px rgba(255,0,0,0.4);}
-}
+        .overlay-content {
+            max-width: 450px;
+            margin: 40px auto;
+            text-align: center;
+            animation: zoomIn 0.4s ease-out;
+        }
 
-/* Map */
-.map-section {margin-top:25px;text-align:center;}
-.map-title {color:#ff3c00;font-size:12px;font-weight:bold;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
-.map-container {width:100%;height:200px;border-radius:20px;overflow:hidden;border:2px solid #ff0000;box-shadow:0 0 15px rgba(255,0,0,0.3);}
-.map-container iframe {width:100%;height:100%;filter:invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);border:none;}
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
 
-/* Menu Overlay */
-#menu-overlay{
-    display:none;
-    position:fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.95);
-    z-index:100;
-    overflow-y:auto;
-    padding:20px;
-    text-align:center;
-}
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            background: #111;
+            color: white;
+            font-family: 'Poppins';
+        }
 
-#menu-overlay img{
-    width:100%;
-    max-width:500px;
-    margin-bottom:20px;
-    border-radius:15px;
-    border:2px solid #ff0000;
-}
+        label { display: block; text-align: left; color: #ff3c00; font-size: 12px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
 
-.close-menu{
-    display:inline-block;
-    margin-bottom:20px;
-    padding:10px 25px;
-    background:red;
-    color:white;
-    border-radius:20px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.footer{margin-top:20px;font-size:11px;color:#777;}
-</style>
+    </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -226,75 +201,84 @@ h1{
             <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771054441/photo_5801134468000058496_y_q3t2te.jpg">
             <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771054442/photo_5801134468000058494_y_f4l7id.jpg">
             <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771054442/photo_5801134468000058498_y_kawel4.jpg">
-            <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771054442/photo_5801134468000058497_y_wygugy.jpg">
             <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771054441/photo_5801134468000058496_y_q3t2te.jpg">
         </div>
     </div>
 
-    <!-- Menu -->
-    <div class="btn btn-red" onclick="toggleMenu()">
-        <img src="https://cdn-icons-png.flaticon.com/128/2649/2649223.png" style="filter:none;">
+    <div class="btn btn-red" onclick="toggleOverlay('menu-overlay')">
+        <img src="https://cdn-icons-png.flaticon.com/128/2649/2649223.png">
         Consulter le Menu
     </div>
 
-    <!-- Phone bleu -->
-    <a class="btn btn-red" href="tel:0557377251">
-        <img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" style="filter:none;">
+    <div class="btn btn-red" onclick="toggleOverlay('form-overlay')">
+        <img src="https://cdn-icons-png.flaticon.com/128/2912/2912761.png">
+        Commander via Formulaire
+    </div>
+
+    <a class="btn" href="tel:0557377251">
+        <img src="https://cdn-icons-png.flaticon.com/128/3059/3059502.png">
         Appeler & Commander
     </a>
 
-    <!-- Email coloré -->
-    <a class="btn btn-red" href="mailto:Lenewyorkaisdz@gmail.com">
-        <img src="https://cdn-icons-png.flaticon.com/128/732/732200.png" style="filter:none;">
-        Nous contacter par Email
-    </a>
-
-    <!-- Instagram -->
     <a class="btn" href="https://www.instagram.com/le.new.yorkais" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" style="filter:none;">
+        <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png">
         Instagram
     </a>
 
-    <!-- Facebook -->
-    <a class="btn" href="https://www.facebook.com/share/1GFXrBWGFZ/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" style="filter:none;">
-        Facebook
-    </a>
-
-    <!-- TikTok -->
-    <a class="btn" href="https://www.tiktok.com/@lenewyorkaisalger" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/128/3046/3046121.png" style="filter:none;">
-        TikTok
-    </a>
-
-    <!-- Map -->
-    <div class="map-section">
-        <p class="map-title">📍 Coopérative El Mostakbel, Dely Ibrahim</p>
-        <div class="map-container">
-            <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.851187236519!2d2.9949504!3d36.7501429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb14e0e9c11b1%3A0x948f426532a0a25!2sLe%20new%20yorkais!5e0!3m2!1sfr!2sdz!4v1771057596901!5m2!1sfr!2sdz" 
-            allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-
-    <div class="footer">🗽 Le New Yorkais • Alger • 2026</div>
+    <div class="footer">🗽 LE NEW YORKAIS • ALGER • 2026</div>
 </div>
 
-<div id="menu-overlay">
-    <div class="close-menu" onclick="toggleMenu()">✖ FERMER LE MENU</div>
-    <br>
-    <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771056926/photo_5801134468000058510_y_cun8is.jpg">
-    <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771056926/photo_5801134468000058511_y_t2sfe9.jpg">
-    <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771056926/photo_5801134468000058508_y_csquhl.jpg">
+<div id="form-overlay" class="overlay">
+    <div class="overlay-content">
+        <div onclick="toggleOverlay('form-overlay')" style="color: red; cursor: pointer; font-weight: bold; margin-bottom: 20px;">✖ FERMER</div>
+        <h2 style="font-family: 'Anton'; color: white; margin-bottom: 25px;">MA COMMANDE 🍟</h2>
+        
+        <form id="orderForm">
+            <label>Nom & Prénom</label>
+            <input type="text" name="nom" placeholder="Votre nom" required>
+
+            <label>Numéro de Téléphone</label>
+            <input type="tel" name="tel" placeholder="05XX XX XX XX" required>
+
+            <label>Votre Commande</label>
+            <textarea name="commande" rows="4" placeholder="Ex: 2 Smash Burgers, 1 portion frites..." required></textarea>
+
+            <label>Adresse de Livraison</label>
+            <input type="text" name="adresse" placeholder="Quartier, N° porte..." required>
+
+            <button type="submit" class="btn btn-red" style="width: 100%; border:none; font-family:'Anton'; font-size: 18px;">ENVOYER SUR WHATSAPP</button>
+        </form>
+    </div>
+</div>
+
+<div id="menu-overlay" class="overlay">
+    <div class="overlay-content">
+        <div onclick="toggleOverlay('menu-overlay')" style="color: red; cursor: pointer; font-weight: bold; margin-bottom: 20px;">✖ FERMER</div>
+        <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771056926/photo_5801134468000058510_y_cun8is.jpg" style="width:100%; border-radius:15px; margin-bottom:10px; border:1px solid red;">
+        <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771056926/photo_5801134468000058511_y_t2sfe9.jpg" style="width:100%; border-radius:15px; margin-bottom:10px; border:1px solid red;">
+    </div>
 </div>
 
 <script>
-function toggleMenu(){
-    const menu = document.getElementById('menu-overlay');
-    menu.style.display = (menu.style.display==="block")?"none":"block";
-    document.body.style.overflow = (menu.style.display==="block")?"hidden":"auto";
-}
+    function toggleOverlay(id) {
+        const el = document.getElementById(id);
+        el.style.display = (el.style.display === "block") ? "none" : "block";
+        document.body.style.overflow = (el.style.display === "block") ? "hidden" : "auto";
+    }
+
+    document.getElementById('orderForm').onsubmit = function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const message = `🍔 *NOUVELLE COMMANDE*%0A%0A` +
+                        `*Nom:* ${formData.get('nom')}%0A` +
+                        `*Tel:* ${formData.get('tel')}%0A` +
+                        `*Commande:* ${formData.get('commande')}%0A` +
+                        `*Adresse:* ${formData.get('adresse')}`;
+        
+        // Numéro mis à jour ici
+        window.open(`https://wa.me/213549008229?text=${message}`, '_blank');
+    };
 </script>
 
 </body>
-</html>
+    </html>
